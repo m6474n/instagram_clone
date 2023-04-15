@@ -50,7 +50,9 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),CustomButton(title: 'Login', onPress: () {  },),
                   TextButton(onPressed: (){}, child: Text('Forget Password?')),
                   SizedBox(height: height*0.1,)
-                  ,BlueButton(title: 'Create account', onPress: () {  },)
+                  ,BlueButton(title: 'Create account', onPress: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>PhoneRegisterScreen()));
+                  },)
                 ],
               ),
             ),
@@ -58,69 +60,7 @@ class _LoginScreenState extends State<LoginScreen> {
         ],
       ),
     )
-//         body: Stack(
-//       children: [
-//         Container(
-//           child: Column(
-//             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//             children: [
-//               Container(
-//                 height: 30,
-//               ),
-//               Container(
-//                 child:
-//
-//                     Column(
-//                       children: [
-// Padding(
-//   padding: const EdgeInsets.all(18.0),
-//   child:   CustomButton2(title: 'Create account',),
-// ),
-//                         Image(
-//                           image: AssetImage('assets/meta-logo.png'),
-//                           height: 45,
-//                 ),
-//                       ],
-//                     ),
-//               )
-//             ],
-//           ),
-//         ),
-//         Center(
-//           child: Padding(
-//             padding: const EdgeInsets.all(18.0),
-//             child: Column(
-//               mainAxisAlignment: MainAxisAlignment.center,
-//               crossAxisAlignment: CrossAxisAlignment.center,
-//               children: [
-//                 Image(
-//                   image: AssetImage('assets/logo.png'),
-//                   height: 80,
-//                 ),
-//                 SizedBox(
-//                   height: 80,
-//                 ),
-//                 Form(
-//                     child: Column(
-//                   children: [
-//                     InputField(
-//                       title: 'Username',
-//                     ),
-//                     SizedBox(
-//                       height: 12,
-//                     ),
-//                     InputField(title: 'Password'),
-//                     SizedBox(height: 20,),
-//                     CustomButton()
-//                   ],
-//                 )),
-//                 TextButton(onPressed: (){}, child: Text('Forget Password?' ,style: TextStyle(color: Colors.white, fontSize: 20, ),))
-//               ],
-//             ),
-//           ),
-//         )
-//       ],
-//     ));
+
         );
   }
 }

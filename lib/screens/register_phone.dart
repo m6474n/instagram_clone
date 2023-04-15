@@ -2,17 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:instagram_clone/components/blue_button.dart';
 import 'package:instagram_clone/components/inputField.dart';
 import 'package:instagram_clone/components/transparent_button.dart';
+import 'package:instagram_clone/screens/login_screen.dart';
 import 'package:instagram_clone/screens/register_email.dart';
 import 'package:instagram_clone/screens/verification_screen.dart';
 
-class SignupScreen extends StatefulWidget {
-  const SignupScreen({Key? key}) : super(key: key);
+class PhoneRegisterScreen extends StatefulWidget {
+  const PhoneRegisterScreen({Key? key}) : super(key: key);
 
   @override
-  State<SignupScreen> createState() => _SignupScreenState();
+  State<PhoneRegisterScreen> createState() => _PhoneRegisterScreenState();
 }
 
-class _SignupScreenState extends State<SignupScreen> {
+class _PhoneRegisterScreenState extends State<PhoneRegisterScreen> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -58,7 +59,10 @@ TransparentButton(title: 'Sign up with email', onPress: () {
                   ],
                 ),
               ),
-              TextButton(onPressed: (){}, child: Text('Already have an account?', style: TextStyle(fontSize: 16),))
+              TextButton(onPressed: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>LoginScreen()));
+
+              }, child: Text('Already have an account?', style: TextStyle(fontSize: 16),))
             ],
           ),
         ),
