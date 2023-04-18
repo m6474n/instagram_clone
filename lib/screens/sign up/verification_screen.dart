@@ -4,14 +4,16 @@ import 'package:instagram_clone/components/inputField.dart';
 import 'package:instagram_clone/components/transparent_button.dart';
 
 class VerificationScreen extends StatefulWidget {
-   var num ;
-   VerificationScreen({Key? key, this.num = "+92340000000"}) : super(key: key);
+   final String num ;
+  const VerificationScreen({Key? key, this.num = "+92340000000"}) : super(key: key);
 
   @override
   State<VerificationScreen> createState() => _VerificationScreen();
 }
 
 class _VerificationScreen extends State<VerificationScreen> {
+  final codeController = TextEditingController();
+  final codeNode = FocusNode();
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -34,7 +36,13 @@ class _VerificationScreen extends State<VerificationScreen> {
                     style: TextStyle(color: Colors.grey.shade100, fontSize: 17),
                   ),
                 ),
-                InputField(title: 'Confirmation code'),
+                InputField(title: 'Confirmation code' , controller: codeController,
+                  focusNode: codeNode,
+                  validator: (value) {
+                  return value.isEmpty ? 'Enter 6-digit code': null;
+                  },
+                  keyboardType: TextInputType.number,
+                  ),
 
                 SizedBox(height: 20,),
                 BlueButton(title: 'Next', onPress: () {

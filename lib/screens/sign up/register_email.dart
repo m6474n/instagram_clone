@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:instagram_clone/components/blue_button.dart';
 import 'package:instagram_clone/components/transparent_button.dart';
-import 'package:instagram_clone/screens/verification_screen.dart';
+import 'package:instagram_clone/screens/sign%20up/pass_screen.dart';
+import 'package:instagram_clone/screens/sign%20up/register_phone.dart';
+import 'package:instagram_clone/screens/sign%20up/verification_screen.dart';
 
-import '../components/inputField.dart';
+import '../../components/inputField.dart';
 class EmailRegisterScreen extends StatefulWidget {
   const EmailRegisterScreen({Key? key}) : super(key: key);
 
@@ -12,8 +14,12 @@ class EmailRegisterScreen extends StatefulWidget {
 }
 
 class _EmailRegisterScreenState extends State<EmailRegisterScreen> {
+  final _formKey = GlobalKey<FormState>();
+  final emailController = TextEditingController();
+  final emailNode = FocusNode();
   @override
   Widget build(BuildContext context) {
+
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
@@ -37,14 +43,27 @@ class _EmailRegisterScreenState extends State<EmailRegisterScreen> {
                         style: TextStyle(color: Colors.grey.shade100, fontSize: 17),
                       ),
                     ),
-                    InputField(title: 'Email'),
+Form(
+    key :_formKey ,
+  child: Column(children: [
+  InputField(title: 'Email',  controller: emailController,
+    focusNode: emailNode,
+    validator: (value) {
+      return value.isEmpty?"Enter Email": null;
+    },
+    keyboardType: TextInputType.emailAddress,
+  ),
 
+  SizedBox(height: 20,),
+  BlueButton(title: 'Next', onPress: () {
+    if(_formKey.currentState!.validate()){
+      Navigator.push(context, MaterialPageRoute(builder: (context)=>PasswordScreen(email: emailController.text.toString(),)));
+
+    }
+  },),
+],)),
                     SizedBox(height: 20,),
-                    BlueButton(title: 'Next', onPress: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>VerificationScreen()));
-                    },),
-                    SizedBox(height: 20,),
-                    TransparentButton(title: 'Sign up with mobile number', onPress: () {  },)
+                    TransparentButton(title: 'Sign up with mobile number', onPress: () { Navigator.push(context, MaterialPageRoute(builder: (context)=> PhoneRegisterScreen())); },)
                   ],
                 ),
               ),

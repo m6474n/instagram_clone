@@ -2,17 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:instagram_clone/components/blue_button.dart';
 import 'package:instagram_clone/components/inputField.dart';
 import 'package:instagram_clone/components/transparent_button.dart';
-import 'package:instagram_clone/screens/register_email.dart';
-import 'package:instagram_clone/screens/verification_screen.dart';
+import 'package:instagram_clone/screens/sign%20up/register_email.dart';
+import 'package:instagram_clone/screens/sign%20up/verification_screen.dart';
 
-class SignupScreen extends StatefulWidget {
-  const SignupScreen({Key? key}) : super(key: key);
+class PhoneRegisterScreen extends StatefulWidget {
+  const PhoneRegisterScreen({Key? key}) : super(key: key);
 
   @override
-  State<SignupScreen> createState() => _SignupScreenState();
+  State<PhoneRegisterScreen> createState() => _PhoneRegisterScreenState();
 }
 
-class _SignupScreenState extends State<SignupScreen> {
+class _PhoneRegisterScreenState extends State<PhoneRegisterScreen> {
+  final mobileController = TextEditingController();
+  final mobileFocusNode = FocusNode();
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -38,7 +40,13 @@ class _SignupScreenState extends State<SignupScreen> {
                         style: TextStyle(color: Colors.grey.shade100, fontSize: 17),
                       ),
                     ),
-                    InputField(title: 'Mobile number'),
+                    InputField(title: 'Mobile number',  controller: mobileController,
+                      focusNode: mobileFocusNode,
+                      validator: (value) {
+                      return value.isEmpty? 'Enter Mobile Number':null;
+                      },
+                      keyboardType: TextInputType.phone,
+                      ),
                     Padding(
                       padding: const EdgeInsets.only(top: 8.0),
                       child: Text(

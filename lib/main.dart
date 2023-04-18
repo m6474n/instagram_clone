@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:instagram_clone/responsive/mobileScreenLayout.dart';
 import 'package:instagram_clone/responsive/responsive.dart';
 import 'package:instagram_clone/responsive/webScreenLayout.dart';
-import 'package:instagram_clone/screens/login_screen.dart';
+import 'package:instagram_clone/screens/login/login_screen.dart';
 import 'package:instagram_clone/screens/splash_screen.dart';
 import 'package:instagram_clone/utils/colors.dart';
 
