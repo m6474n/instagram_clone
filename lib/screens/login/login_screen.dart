@@ -35,7 +35,14 @@ setState(() {
           setState(() {
             loading= false;
           });
+          ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Login Successfully')));
           Navigator.push(context, MaterialPageRoute(builder: (context)=> HomeScreen()));
+
+    }).onError((error, stackTrace){
+      setState(() {
+        loading= false;
+      });
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(error.toString())));
     });
   }
 

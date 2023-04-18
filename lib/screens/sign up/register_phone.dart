@@ -2,8 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:instagram_clone/components/blue_button.dart';
 import 'package:instagram_clone/components/inputField.dart';
 import 'package:instagram_clone/components/transparent_button.dart';
+import 'package:instagram_clone/screens/login/login_screen.dart';
+
 import 'package:instagram_clone/screens/sign%20up/register_email.dart';
 import 'package:instagram_clone/screens/sign%20up/verification_screen.dart';
+
+
 
 class PhoneRegisterScreen extends StatefulWidget {
   const PhoneRegisterScreen({Key? key}) : super(key: key);
@@ -24,29 +28,34 @@ class _PhoneRegisterScreenState extends State<PhoneRegisterScreen> {
         ),
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 18.0),
-          child: Column(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Container(
                 child: Column(
                   children: [
                     Text(
                       "What's yout mobile number?",
-                      style: TextStyle(fontWeight: FontWeight.bold, fontSize: 28),
+                      style:
+                          TextStyle(fontWeight: FontWeight.bold, fontSize: 28),
                     ),
                     Padding(
                       padding: const EdgeInsets.only(top: 12.0, bottom: 30),
                       child: Text(
                         'Enter the mobile number where you can be connected. No one will see this on your profile.',
-                        style: TextStyle(color: Colors.grey.shade100, fontSize: 17),
+                        style: TextStyle(
+                            color: Colors.grey.shade100, fontSize: 17),
                       ),
                     ),
-                    InputField(title: 'Mobile number',  controller: mobileController,
+                    InputField(
+                      title: 'Mobile number',
+                      controller: mobileController,
                       focusNode: mobileFocusNode,
                       validator: (value) {
-                      return value.isEmpty? 'Enter Mobile Number':null;
+                        return value.isEmpty ? 'Enter Mobile Number' : null;
                       },
                       keyboardType: TextInputType.phone,
-                      ),
+                    ),
                     Padding(
                       padding: const EdgeInsets.only(top: 8.0),
                       child: Text(
@@ -54,19 +63,42 @@ class _PhoneRegisterScreenState extends State<PhoneRegisterScreen> {
                         style: TextStyle(fontSize: 16),
                       ),
                     ),
-                    SizedBox(height: 20,),
-                    BlueButton(title: 'Next', onPress: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>VerificationScreen()));
-                    },),
-SizedBox(height: 20,),
-TransparentButton(title: 'Sign up with email', onPress: () {
-
-  Navigator.push(context, MaterialPageRoute(builder: (context)=>EmailRegisterScreen()));
-},)
+                    SizedBox(
+                      height: 20,
+                    ),
+                    BlueButton(
+                      title: 'Next',
+                      onPress: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => VerificationScreen()));
+                      },
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    TransparentButton(
+                      title: 'Sign up with email',
+                      onPress: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => EmailRegisterScreen()));
+                      },
+                    )
                   ],
                 ),
               ),
-              TextButton(onPressed: (){}, child: Text('Already have an account?', style: TextStyle(fontSize: 16),))
+              TextButton(
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => LoginScreen()));
+                  },
+                  child: Text(
+                    'Already have an account?',
+                    style: TextStyle(fontSize: 16),
+                  ))
             ],
           ),
         ),
