@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:instagram_clone/components/blue_button.dart';
 import 'package:instagram_clone/components/custom_button.dart';
 import 'package:instagram_clone/components/inputField.dart';
-import 'package:instagram_clone/screens/home_screen.dart';
+import 'package:instagram_clone/screens/tabs/home_screen.dart';
 
 class PasswordScreen extends StatefulWidget {
   final String email;

@@ -4,6 +4,8 @@ class WebScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(body: Center(child: Text('Web Screen'),),);
+    return const Scaffold(
+
+      body: Center(child: Text('Web Screen'),),);
   }
 }

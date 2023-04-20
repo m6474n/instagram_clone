@@ -3,7 +3,10 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:instagram_clone/components/custom_button.dart';
 import 'package:instagram_clone/components/inputField.dart';
-import 'package:instagram_clone/screens/home_screen.dart';
+import 'package:instagram_clone/responsive/mobileScreenLayout.dart';
+import 'package:instagram_clone/responsive/responsive.dart';
+import 'package:instagram_clone/responsive/webScreenLayout.dart';
+import 'package:instagram_clone/screens/tabs/home_screen.dart';
 import 'package:instagram_clone/screens/sign%20up/register_email.dart';
 import 'package:instagram_clone/screens/sign%20up/register_phone.dart';
 
@@ -36,7 +39,7 @@ setState(() {
             loading= false;
           });
           ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Login Successfully')));
-          Navigator.push(context, MaterialPageRoute(builder: (context)=> HomeScreen()));
+          Navigator.push(context, MaterialPageRoute(builder: (context)=> ResponsiveLayout(webScreenLayout: WebScreen(), mobileScreenLayout: MobileScreen(),)));
 
     }).onError((error, stackTrace){
       setState(() {
