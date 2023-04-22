@@ -35,7 +35,7 @@ setState(() {
     return Scaffold(
         appBar: AppBar(
           automaticallyImplyLeading: false,
-          backgroundColor: Colors.transparent,
+          backgroundColor: Colors.grey.withOpacity(.1),
           title: Image(
             image: AssetImage('assets/logo-1.png'),
             color: Colors.white,
